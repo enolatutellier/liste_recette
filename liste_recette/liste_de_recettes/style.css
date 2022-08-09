@@ -1,0 +1,617 @@
+/* INITIALISATION */
+
+*{
+    color: hsl(10, 25%, 25%);
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: left;
+    background: none;
+    appearance: none;
+    list-style-type: none;
+
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+*:focus {
+    outline: none;
+}
+
+/* RESSOURCES */
+
+@keyframes texte-clignote {
+    50% {
+        color: hsl(0, 100%, 50%);
+    }
+}
+
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url(polices/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+:root {
+    --primaire: linear-gradient(to bottom, hsl(10, 85%, 60%), hsl(20, 100%, 65%));
+    --primaire-inverse: linear-gradient(to top, hsl(10, 85%, 60%), hsl(20, 100%, 65%));
+    --secondaire: linear-gradient(to right, hsl(20, 100%, 80%), hsl(30, 100%, 85%));
+    --tertiaire: hsl(25, 90%, 85%);
+    --quaternaire: hsl(20, 100%, 95%);
+}
+
+/* ÉLÉMENTS GÉNÉRAUX */
+
+h1 {
+    font-size: 36px;
+    font-family: 'PlayfairDisplay', serif;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 22px;
+    font-family: 'PlayfairDisplay', serif;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+button {
+    cursor: pointer;
+}
+
+:not(nav, li) > button,
+:not(nav) > input {
+    outline: solid 2px hsla(30, 0%, 50%, 0%);
+    border: solid 1px hsl(30, 25%, 50%);
+
+    transition: 250ms;
+}
+
+:not(nav, li) > button:hover, :not(nav, li) > button:focus,
+:not(nav) > input:hover, :not(nav, header) > input:focus, :not(nav) > input:checked {
+    outline: solid 2px hsla(33, 100%, 50%, 50%);
+    border: solid 1px hsl(33, 100%, 50%);
+}
+
+nav {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 25px;
+
+    background-color: var(--tertiaire);
+
+    border-radius: 5px;
+
+    padding: 15px 25px;
+
+    width: fit-content;
+}
+
+nav div, nav fieldset {
+    display: grid;
+    gap: 0px;
+
+    transition: 250ms 125ms;
+}
+
+nav .options-visibles, nav .options-visibles fieldset {
+    gap: 15px;
+
+    transition: 250ms;
+}
+
+nav fieldset img {
+    height: 0;
+    overflow: hidden;
+
+    transition: 250ms;
+}
+
+nav .options-visibles fieldset img {
+    height: 24px;
+
+    transition: 250ms 125ms;
+}
+
+nav input {
+    outline: solid 2px hsla(33, 100%, 50%, 0%);
+    outline-offset: 5px;
+
+    width: 85px;
+    height: min-content;
+
+    cursor: pointer;
+
+    animation: texte-clignote 1500ms infinite;
+    transition: 250ms;
+}
+
+nav input:hover, nav input:focus {
+    color: hsl(33, 100%, 50%);
+
+    outline: solid 2px hsla(33, 100%, 50%, 50%);
+    outline-offset: 5px;
+
+    animation: none;
+}
+
+nav input:focus {
+    width: 170px;
+
+    cursor: text;
+}
+
+nav input::placeholder {
+    color: hsl(10, 25%, 25%);
+
+    transition: 500ms;
+}
+
+nav input:focus::placeholder {
+    color: hsl(10, 25%, 70%);
+}
+
+nav button {
+    display: flex;
+    flex-direction: column;
+
+    border: none;
+    border-radius: 9px;
+
+    outline: solid 2px hsla(33, 100%, 50%, 0%);
+    outline-offset: 5px;
+
+    width: fit-content;
+    height: fit-content;
+
+    transition: 250ms;
+}
+
+nav button:hover, nav button:focus {
+    color: hsl(33, 100%, 50%);
+
+    border: none;
+
+    outline: solid 2px hsla(33, 100%, 50%, 50%);
+    outline-offset: 5px;
+}
+
+nav fieldset button {
+    outline: none;
+}
+
+nav fieldset button:hover, nav fieldset button:focus {
+    outline: none;
+
+    padding-left: 16px;
+}
+
+.grisee {
+    filter: grayscale(75%);
+}
+
+/* STRUCTURE GÉNÉRALE */
+
+html {
+    overflow: overlay;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+}
+
+main {
+    position: relative;
+
+    flex: 1;
+
+    background-color: var(--quaternaire);
+
+    overflow: hidden;
+}
+
+header, footer {
+    padding: 15px 15vw;
+
+    transition: padding 250ms;
+}
+
+main > section {
+    padding: 0 calc(15vw - 30px);
+
+    width: 100vw;
+
+    transition: padding 250ms;
+}
+
+main > section > ul,
+main > section > article {
+    background-color: var(--quaternaire);
+
+    padding: 45px 30px;
+}
+
+@media screen and (max-width: 1024px) {
+    header, footer {
+        padding: 5px 30px;
+    }
+
+    main > section {
+        padding: 0;
+    }
+}
+
+/* EN-TÊTE */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--primaire);
+}
+
+header::after {
+    content: "";
+
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+
+    border-top: solid 15px;
+    border-image: url(images/vague_haut.svg) 15 repeat;
+
+    width: 100vw;
+}
+
+header a {
+    display: flex;
+    align-items: center;
+}
+
+header a img{
+    height:100px;
+
+    transition: 250ms;
+}
+
+header a h1 {
+    font-size: 48px;
+    color: var(--tertiaire);
+
+    margin-left: 16px;
+}
+
+header input[type=checkbox] {
+    display: none;
+
+    background: url(images/icones/menu.svg) center no-repeat;
+    background-size: contain;
+    
+    border-radius: 50%;
+
+    width: 46px;
+    height: 46px;
+    
+    cursor: pointer;
+}
+
+@media screen and (max-width: 512px) {
+
+    header a img{
+        height:75px;
+    }
+
+    header input[type=checkbox] {
+        display: block;
+    }
+
+    header nav {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transform: translateY(100%);
+
+        grid-auto-flow: row;
+        gap: 15px;
+
+        width: 0;
+
+        padding: 30px 0 15px;
+
+        overflow: hidden;
+
+        transition: width 500ms;
+    }
+
+    header nav > * {
+        margin: 0 30px;
+    }
+
+    header input:checked + nav {
+        width: 100%;
+    }
+}
+
+/* LISTE DES RECETTES */
+
+#liste-recettes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    animation: liste-part;
+    animation-duration: 0;
+}
+
+#liste-recettes.visible {
+    position: relative;
+    z-index: auto;
+
+    animation: liste-arrive;
+}
+
+#liste-recettes > ul {
+    display: grid;
+    gap: 25px;
+}
+
+.resume-recette {
+    display: grid;
+    gap: 15px;
+    
+    background: var(--secondaire);
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    width: 100%;
+
+    transition: 125ms;
+}
+
+.resume-recette:hover, .resume-recette:focus {
+    transform: scale(101%);
+}
+
+.resume-recette p {
+    font-style: oblique;
+}
+
+.resume-recette ul,
+#indicateurs-recette {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resume-recette ul li,
+#indicateurs-recette li {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 5px;
+
+    font-weight: 600;
+}
+
+.resume-recette ul img,
+#indicateurs-recette img {
+    width: 18px;
+    height: 18px;
+}
+
+@media screen and (max-width: 512px) {
+
+    .resume-recette ul,
+    #indicateurs-recette {
+        display: grid;
+        gap: 10px;
+    }
+
+    .resume-recette ul li,
+    #indicateurs-recette li {
+        width: min-content;
+    }
+}
+
+/* CONSULTATION D'UNE RECETTE */
+
+#consultation-recette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    animation: recette-part;
+    animation-duration: 0;
+}
+
+#consultation-recette.visible {
+    position: relative;
+    z-index: auto;
+
+    animation: recette-arrive;
+}
+
+#consultation-recette > button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+
+    border-radius: 50%;
+
+    width: 64px;
+    height: 64px;
+}
+
+#consultation-recette > button img {
+    width: 100%;
+    height: 100%;
+}
+
+#consultation-recette > article {
+    display: grid;
+    gap: 25px;
+}
+
+#consultation-recette article section {
+    display: grid;
+    gap: 10px;
+}
+
+#description-recette {
+    font-style: oblique;
+}
+
+#ingredients-recette{
+    display: grid;
+
+    gap: 7px;
+}
+
+#ingredients-recette li {
+    list-style-type: '– ';
+
+    margin-left: 38px;
+}
+
+#ingredients-recette li div,
+#etapes-recette li div {
+    display: grid;
+    gap: 3px;
+}
+
+#ingredients-recette nav,
+#etapes-recette nav {
+    gap: 10px;
+
+    border-radius: 10px;
+
+    padding: 6px 10px;
+}
+
+#consultation-recette li nav {
+    border-radius: 0 0 10px 10px;
+}
+
+#ingredients-recette nav button,
+#etapes-recette nav button {
+    outline: none;
+}
+
+#ingredients-recette nav button:hover, #ingredients-recette nav button:focus,
+#etapes-recette nav button:hover, #etapes-recette nav button:focus {
+    outline: none;
+
+    padding-top: 16px;
+}
+
+#ingredients-recette nav button img,
+#etapes-recette nav button img {
+    width: 24px;
+}
+
+#etapes-recette {
+    display: grid;
+    gap: 13px;
+}
+
+#etapes-recette li {
+    list-style-type: decimal;
+
+    margin-left: 38px;
+}
+
+#etapes-recette p {
+    text-align: justify;
+}
+
+@media screen and (max-width: 1024px) {
+
+    #consultation-recette > button {
+        left: auto;
+        right: 30px;
+
+        width: 46px;
+        height: 46px;
+    }
+
+    #consultation-recette article h1 {
+        width: calc(100% - 76px);
+    }
+}
+
+/* PIED DE PAGE */
+
+footer {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+
+    background: var(--primaire-inverse);
+}
+
+footer::before {
+    content: "";
+
+    position: absolute;
+    top: -14px;
+    left: 0;
+
+    border-top: solid 15px;
+    border-image: url(images/vague_bas.svg) 15 repeat;
+
+    width: 100vw;
+}
+
+footer p {
+    color: white;
+}
+
+/* ANIMATIONS */
+
+@keyframes liste-part {
+    from {
+        z-index: auto;
+    }
+    to {
+        z-index: auto;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes liste-arrive {
+    from {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes recette-part {
+    from {
+        z-index: auto;
+    }
+    to {
+        z-index: auto;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes recette-arrive {
+    from {
+        transform: translateX(100%);
+    }
+}

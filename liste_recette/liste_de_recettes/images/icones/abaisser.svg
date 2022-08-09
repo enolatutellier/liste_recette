@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="60"
+   height="60"
+   viewBox="0 0 15.875 15.875"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   sodipodi:docname="abaisser.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     showguides="true"
+     inkscape:zoom="10.466667"
+     inkscape:cx="29.952228"
+     inkscape:cy="29.999999"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect867"
+       style="fill:#bc33ff;fill-opacity:1;stroke-width:1.1951;stroke-linecap:round;stroke-linejoin:round"
+       d="M 2.6458333,15.875 C 1.1800418,15.875 0,14.694958 0,13.229167 V 2.6458333 C 0,1.1800417 1.1800418,0 2.6458333,0 H 13.229167 C 14.694958,0 15.875,1.1800417 15.875,2.6458333 V 13.229167 c 0,1.465791 -1.180042,2.645833 -2.645833,2.645833 z m 0,-1.322917 H 13.229167 c 0.732895,0 1.322916,-0.590021 1.322916,-1.322916 V 2.6458333 c 0,-0.7328958 -0.590021,-1.3229166 -1.322916,-1.3229166 H 2.6458333 c -0.7328958,0 -1.3229167,0.5900208 -1.3229167,1.3229166 V 13.229167 c 0,0.732895 0.5900209,1.322916 1.3229167,1.322916 z M 7.9374999,13.229167 7.2760416,12.567708 2.6458333,7.9374999 H 3.96875 L 7.2760416,11.244792 V 2.6458333 H 8.5989582 V 11.244792 L 11.90625,7.9374999 h 1.322917 L 8.5989582,12.567708 Z" />
+  </g>
+</svg>

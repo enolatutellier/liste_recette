@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <title>Document</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <a href="">
+                <img src="images/logo.png" alt="Logo">
+            </a>
+
+            <input type="checkbox">
+            <nav>
+                <div id="ajout">
+                    <button onclick="afficher_options('ajout')">Ajouter</button>
+                    <fieldset disabled>
+                        <button onclick="fermer_options()"><img src="images/icones/annuler.svg" alt="X"></button>
+                        <button onclick="fermer_options(); ajouter_recette()"><img src="images/icones/valider.svg" alt="V"></button>
+                    </fieldset>
+                </div>
+                <input id="recherche" type="text" onchange="afficher_liste_recettes()" placeholder="Rechercher">
+            </nav>
+        </header>
+
+        <main>
+            <section id="liste-recettes" class="visible">
+                <ul></ul>
+            </section>
+
+            <section id="consultation-recette">
+                <button onclick="defiler()"><img src="images/icones/retour.svg"></button>
+                <article>
+                    <h1 id="titre-recette"></h1>
+                    <p id="description-recette"></p>
+                    <section>
+                        <h2>Ingrédients :</h2>
+                        <ul id="ingredients-recette"></ul>
+                    </section>
+                    <section>
+                        <h2>Étapes :</h2>
+                        <ol id="etapes-recette"></ol>
+                    </section>
+                    <ul id="indicateurs-recette"></ul>
+                    <nav id="menu-recette"></nav>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>Copyright</p>
+        </footer>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
